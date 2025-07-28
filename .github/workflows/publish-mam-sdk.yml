@@ -2,8 +2,7 @@ name: Publish the Microsoft Mobile Application Management SDK to GitHub Packages
 
 on:
   workflow_dispatch:
-  pull_request:
-    types: [ closed ]
+  push:
     branches:
       - master
 
@@ -28,7 +27,7 @@ jobs:
 
       - name: Get version
         run: |
-          VERSION=$(xmllint --xpath "//version/text()" mam-sdk.xml | head -1)
+          VERSION=$(grep -o '<version>[^<]*</version>' mam-sdk.xml | head -1 | sed 's/<[^>]*>//g')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Publish AAR with JAR attachment and POM configuration to GitHub Packages
