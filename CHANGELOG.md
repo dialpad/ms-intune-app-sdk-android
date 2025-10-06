@@ -1,3 +1,66 @@
+Version 12.0.2
+--------------
+* Protect WebView cache data using a device-wide key for MMA apps.
+
+Version 12.0.1
+--------------
+* Improve `CloudMediaProvider` related error messages.
+
+Version 12.0.0
+--------------
+* Support for Android 16 targeting.
+* Update minimum supported MAM SDK version to Android 5.0 (API level 21).
+* Expand `MAMCloudMediaProvider` to cover new `CloudMediaProvider` APIs.
+* The build plugin will now replace `MediaStore` with `MAMMediaStore`.
+
+Version 11.5.0
+--------------
+* Add `MAMPolicyManager.registerBlockAccountCallback` to allow apps to register a callback
+  to be notified when an account needs to be blocked in a mixed view.
+
+Version 11.4.0
+--------------
+* Revert build plugin support for static method call rewrites to account for inheritance. This revealed issues with 
+rewriting static method calls with different expected parameters, which will need to be resolved before reintroducing 
+inheritance-based static rewrites.
+
+Version 11.3.0
+--------------
+* Add `@DeveloperPreview` annotation to the SDK. This allows us to mark certain APIs as experimental. 
+  We require our partners to explicitly opt-in to using such APIs and communicate that they should only 
+  be used for development purposes. This introduces a dependency on `androidx.annotation:annotation-experimental:1.4.1`.
+* Add public SDK surface for MMA Mixed View APIs.
+* Expanded `getIsSaveToLocationAllowed` SDK method to include `IMANAGE` and `EGNYTE` locations.
+
+Version 11.2.0
+--------------
+* The build plugin will now wrap calls to `View.startDrag`, the deprecated version of `View.startDragAndDrop` that
+  is still being used by some apps. This allows us to enforce transfer policy on drag and drop without relying on Android internals.
+* Fix internal package publishing.
+* Add SDK surface for `Activity.onStart` and `Activity.onStop`. The MAM build plugin will automatically intercept these methods.
+* Add build plugin support for static method call rewrites to take inheritance into account.
+
+Version 11.1.3
+--------------
+* Changes to allow for internal partner testing of certain upcoming features.
+
+Version 11.1.2
+--------------
+* Handle `InvalidClassException` thrown when un-parceling intent extras in offline mode.
+
+Version 11.1.1
+--------------
+* Add checks for whether certain MAM components have been disabled on a rooted device.
+
+Version 11.1.0
+--------------
+
+* Add MAM SDK version to the SDK manifest.
+* Fix edge-to-edge behavior in offline startup activity for Android 15 targeting.
+* Identify owners of protected data buffers by OID instead of UPN.
+* Add SDK surface for `ShortcutInfo.Builder` to create managed shortcuts.
+* Address MAM plugin build cache misses when sharing build cache between machines.
+
 Version 11.0.0
 --------------
 
