@@ -27,3 +27,23 @@ For more information on the Company Portal app requirements for data protection 
 
 See [Taskr-Sample-Intune-Android-App](https://github.com/microsoftconnect/Taskr-Sample-Intune-Android-App) for a sample application that integrates the Intune App SDK for Android
 and [ms-intune-app-sdk-android-samples](https://github.com/microsoftconnect/ms-intune-app-sdk-android-samples) for a sample MAUI application that integrates the [Microsoft.Intune.Maui.Essentials.android](https://www.nuget.org/packages/Microsoft.Intune.Maui.Essentials.android/) NuGet package.
+
+## Usage
+
+Configure the GitHub Packages Maven registry in your Gradle project:
+
+```kotlin
+maven("https://maven.pkg.github.com/microsoftconnect/ms-intune-app-sdk-android")
+```
+
+SDK coordinates: `com.microsoft.intune:mam-sdk:$VERSION`
+
+Gradle plugin coordinates: `com.microsoft.intune:mam-build:$VERSION`
+
+> Note: GitHub Packages requires authentication. Configure credentials for the Maven registry.
+
+## Steps for Triggering the Publishing Automation
+
+1. Update the version tags inside the [mam-sdk.xml](mam-sdk.xml) and [mam-build.xml](GradlePlugin/mam-build.xml) POM files
+2. Create a PR with the changes and add the `publish` label
+3. Merge the PR into `master` to trigger the publishing automation
