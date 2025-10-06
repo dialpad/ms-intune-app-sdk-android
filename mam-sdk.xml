@@ -6,7 +6,7 @@
 
     <groupId>com.microsoft.intune</groupId>
     <artifactId>mam-sdk</artifactId>
-    <version>11.0.0</version>
+    <version>12.0.2</version>
     <packaging>aar</packaging>
 
 </project>
