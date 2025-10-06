@@ -2,7 +2,8 @@ name: Publish the Microsoft Mobile Application Management SDK to GitHub Packages
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
+    types: [ closed ]
     branches:
       - master
 
