@@ -2,7 +2,8 @@ name: Publish the Microsoft Mobile Application Management Build Gradle Plugin to
 
 on:
   workflow_dispatch:
-  push:
+  pull_request:
+    types: [ closed ]
     branches:
       - master
 
